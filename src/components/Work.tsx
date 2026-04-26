@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 import { portfolioData } from "../data/portfolioData";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Work = () => {
   const [isPinnedLayout, setIsPinnedLayout] = useState(false);
@@ -20,7 +20,22 @@ const Work = () => {
 
       if (!container || !workFlex) return;
 
-      const translateX = Math.max(0, workFlex.scrollWidth - container.clientWidth);
+      gsap.set(workFlex, { x: 0 });
+
+      const boxes = Array.from(
+        workFlex.querySelectorAll(".work-box")
+      ) as HTMLElement[];
+
+      if (boxes.length === 0) {
+        setIsPinnedLayout(false);
+        return;
+      }
+
+      const firstBox = boxes[0];
+      const lastBox = boxes[boxes.length - 1];
+      const contentWidth =
+        lastBox.offsetLeft + lastBox.offsetWidth - firstBox.offsetLeft;
+      const translateX = Math.max(0, contentWidth - container.clientWidth);
 
       if (translateX === 0) {
         setIsPinnedLayout(false);
@@ -36,11 +51,13 @@ const Work = () => {
           end: `+=${translateX}`,
           scrub: true,
           pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
           id: "work",
         },
       });
 
-      timeline.to(".work-flex", {
+      timeline.to(workFlex, {
         x: -translateX,
         ease: "none",
       });
@@ -48,6 +65,7 @@ const Work = () => {
       return () => {
         timeline.kill();
         ScrollTrigger.getById("work")?.kill();
+        gsap.set(workFlex, { clearProps: "transform" });
       };
     });
 
