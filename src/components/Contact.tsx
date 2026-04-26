@@ -11,7 +11,7 @@ const Contact = () => {
         <h3>Contact</h3>
         <div className="contact-flex">
           <div className="contact-box">
-            <h4>Email</h4>
+            <h4 >Email</h4>
             <p>
               <a
                 href={`mailto:${portfolioData.person.email}`}
