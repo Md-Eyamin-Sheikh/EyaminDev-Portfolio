@@ -1,0 +1,34 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#09060D"/>
+  <rect x="40" y="40" width="1120" height="720" rx="32" fill="url(#bg1)" stroke="#4D2A6E"/>
+  <circle cx="220" cy="190" r="120" fill="#B983FF" fill-opacity="0.15"/>
+  <circle cx="980" cy="620" r="180" fill="#FF86D6" fill-opacity="0.14"/>
+  <rect x="104" y="118" width="300" height="42" rx="21" fill="#241933"/>
+  <rect x="104" y="194" width="522" height="126" rx="28" fill="#120E18" stroke="#5D3B7A"/>
+  <rect x="658" y="194" width="438" height="280" rx="28" fill="#120E18" stroke="#5D3B7A"/>
+  <rect x="104" y="350" width="522" height="272" rx="28" fill="#120E18" stroke="#5D3B7A"/>
+  <rect x="658" y="506" width="438" height="116" rx="28" fill="#120E18" stroke="#5D3B7A"/>
+  <rect x="698" y="546" width="186" height="34" rx="17" fill="#A679FF"/>
+  <text x="104" y="355" fill="#F3ECFF" font-family="Arial, sans-serif" font-size="82" font-weight="700">StudyHub</text>
+  <text x="104" y="408" fill="#C8B4E8" font-family="Arial, sans-serif" font-size="28">Collaborative Study Platform</text>
+  <text x="104" y="152" fill="#C8B4E8" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">MERN • STRIPE • REAL-TIME</text>
+  <text x="144" y="250" fill="#F3ECFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Multi-role access</text>
+  <text x="144" y="292" fill="#BFAFD8" font-family="Arial, sans-serif" font-size="22">Students, tutors, and admins in one workflow.</text>
+  <text x="698" y="250" fill="#F3ECFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Session booking</text>
+  <text x="698" y="292" fill="#BFAFD8" font-family="Arial, sans-serif" font-size="22">Stripe-powered payments and secure scheduling.</text>
+  <text x="144" y="412" fill="#F3ECFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Admin dashboard</text>
+  <text x="144" y="454" fill="#BFAFD8" font-family="Arial, sans-serif" font-size="22">Approvals, content, and user oversight in one place.</text>
+  <text x="144" y="510" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">React</text>
+  <text x="250" y="510" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">Firebase</text>
+  <text x="392" y="510" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">Express</text>
+  <text x="518" y="510" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">MongoDB</text>
+  <text x="144" y="560" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">Stripe</text>
+  <text x="250" y="560" fill="#A679FF" font-family="Arial, sans-serif" font-size="22">Tailwind CSS</text>
+  <text x="698" y="568" fill="#120E18" font-family="Arial, sans-serif" font-size="22" font-weight="700">Tutor sessions approved</text>
+  <defs>
+    <linearGradient id="bg1" x1="72" y1="80" x2="1102" y2="726" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#140F1D"/>
+      <stop offset="1" stop-color="#1A1322"/>
+    </linearGradient>
+  </defs>
+</svg>

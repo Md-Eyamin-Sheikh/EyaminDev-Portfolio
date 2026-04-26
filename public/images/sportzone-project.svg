@@ -1,0 +1,33 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#071014"/>
+  <rect x="40" y="40" width="1120" height="720" rx="32" fill="url(#bg2)" stroke="#1E6974"/>
+  <circle cx="260" cy="620" r="170" fill="#1DD7D0" fill-opacity="0.11"/>
+  <circle cx="965" cy="205" r="140" fill="#97FFB5" fill-opacity="0.1"/>
+  <rect x="104" y="118" width="324" height="42" rx="21" fill="#11252A"/>
+  <rect x="104" y="194" width="476" height="302" rx="28" fill="#0B181D" stroke="#2E7E88"/>
+  <rect x="620" y="194" width="476" height="148" rx="28" fill="#0B181D" stroke="#2E7E88"/>
+  <rect x="620" y="374" width="476" height="248" rx="28" fill="#0B181D" stroke="#2E7E88"/>
+  <rect x="104" y="528" width="476" height="94" rx="28" fill="#0B181D" stroke="#2E7E88"/>
+  <text x="104" y="355" fill="#E7FFFF" font-family="Arial, sans-serif" font-size="82" font-weight="700">SportZone</text>
+  <text x="104" y="408" fill="#ABD7D6" font-family="Arial, sans-serif" font-size="28">Athletic Events Platform</text>
+  <text x="104" y="152" fill="#ABD7D6" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">AI ASSISTANT • BOOKINGS • DASHBOARDS</text>
+  <text x="144" y="240" fill="#E7FFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">AI assistance</text>
+  <text x="144" y="282" fill="#B8D6D6" font-family="Arial, sans-serif" font-size="22">Voice and image chat support for richer interactions.</text>
+  <text x="144" y="350" fill="#E7FFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Event booking</text>
+  <text x="144" y="392" fill="#B8D6D6" font-family="Arial, sans-serif" font-size="22">Real-time status updates and personalized dashboards.</text>
+  <text x="660" y="252" fill="#E7FFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Role-based access</text>
+  <text x="660" y="294" fill="#B8D6D6" font-family="Arial, sans-serif" font-size="22">Firebase authentication with responsive UI flows.</text>
+  <text x="660" y="430" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">React</text>
+  <text x="764" y="430" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">Firebase</text>
+  <text x="910" y="430" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">Express</text>
+  <text x="660" y="476" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">MongoDB</text>
+  <text x="806" y="476" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">Stripe</text>
+  <text x="918" y="476" fill="#1DD7D0" font-family="Arial, sans-serif" font-size="22">Tailwind CSS</text>
+  <text x="144" y="584" fill="#E7FFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Discover, book, and manage athletic events.</text>
+  <defs>
+    <linearGradient id="bg2" x1="84" y1="70" x2="1118" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B171C"/>
+      <stop offset="1" stop-color="#112328"/>
+    </linearGradient>
+  </defs>
+</svg>
