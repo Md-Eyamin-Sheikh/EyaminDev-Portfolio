@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { portfolioData } from "../data/portfolioData";
 

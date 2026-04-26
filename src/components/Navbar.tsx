@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
-import "./styles/Navbar.css";
 import BrandLogo from "./BrandLogo";
 import { portfolioData } from "../data/portfolioData";
 

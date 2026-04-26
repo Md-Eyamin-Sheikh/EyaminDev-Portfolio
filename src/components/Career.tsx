@@ -1,4 +1,3 @@
-import "./styles/Career.css";
 import { portfolioData } from "../data/portfolioData";
 
 const Career = () => {

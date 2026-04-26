@@ -1,5 +1,3 @@
-import "./styles/BrandLogo.css";
-
 type BrandLogoProps = {
   variant?: "nav" | "loader";
 };

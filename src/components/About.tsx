@@ -1,4 +1,3 @@
-import "./styles/About.css";
 import { portfolioData } from "../data/portfolioData";
 
 const About = () => {

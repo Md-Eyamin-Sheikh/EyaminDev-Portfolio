@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react";
-import "./styles/Landing.css";
 import { portfolioData } from "../data/portfolioData";
 
 const Landing = ({ children }: PropsWithChildren) => {
