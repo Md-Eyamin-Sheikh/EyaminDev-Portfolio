@@ -28,6 +28,22 @@ Instead of using a normal static portfolio, this project combines:
 
 ---
 
+# 🖼 Screenshots
+
+## Hero Section
+
+![Hero Section](docs/images/Hero.png)
+
+## About Me Section
+
+![About Me Section](docs/images/Aboutme.png)
+
+## What I Do Section
+
+![What I Do Section](docs/images/What-I-do.png)
+
+---
+
 # ⚙️ Core Technologies Used
 
 ## Frontend Stack
