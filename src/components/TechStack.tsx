@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useMemo, useState, useEffect, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
@@ -124,6 +124,34 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   );
 }
 
+function PhysicsScene({ isActive, materials }: { isActive: boolean; materials: THREE.MeshPhysicalMaterial[] }) {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    import("@dimforge/rapier3d-compat").then((RAPIER) => {
+      RAPIER.init().then(() => {
+        setReady(true);
+      });
+    });
+  }, []);
+
+  if (!ready) return null;
+
+  return (
+    <Physics gravity={[0, 0, 0]}>
+      <Pointer isActive={isActive} />
+      {spheres.map((props, i) => (
+        <SphereGeo
+          key={i}
+          {...props}
+          material={materials[Math.floor(Math.random() * materials.length)]}
+          isActive={isActive}
+        />
+      ))}
+    </Physics>
+  );
+}
+
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
 
@@ -187,17 +215,9 @@ const TechStack = () => {
           shadow-mapSize={[512, 512]}
         />
         <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
-            />
-          ))}
-        </Physics>
+        <Suspense fallback={null}>
+          <PhysicsScene isActive={isActive} materials={materials} />
+        </Suspense>
         <Environment
           files="/models/char_enviorment.hdr"
           environmentIntensity={0.5}
@@ -212,3 +232,4 @@ const TechStack = () => {
 };
 
 export default TechStack;
+

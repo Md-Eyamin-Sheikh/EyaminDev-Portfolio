@@ -103,7 +103,7 @@ export function setCharTimeline(
         )
         .fromTo(
           ".character-rim",
-          { opacity: 1, scaleX: 1.4 },
+          { opacity: 0, scaleX: 1.4 },
           { opacity: 0, scale: 0, y: "-70%", duration: 5, delay: 2 },
           0.3
         );
