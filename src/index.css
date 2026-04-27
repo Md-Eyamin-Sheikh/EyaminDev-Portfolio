@@ -88,6 +88,7 @@ main {
 
 .section-container {
   width: 1300px;
+  max-width: var(--cWidth);
 }
 
 .title,
@@ -1881,6 +1882,7 @@ div.resume-button span {
   .work-section {
     height: auto;
     min-height: auto;
+    overflow-x: hidden;
   }
 
   .work-container {
@@ -1889,11 +1891,32 @@ div.resume-button span {
 
   .work-flex {
     height: auto;
+    flex-direction: column;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  .work-flex::before,
+  .work-flex::after {
+    display: none;
   }
 
   .work-box {
+    width: 100%;
     min-height: auto;
     justify-content: start;
+    border-right: none;
+    border-bottom: 1px solid #363636;
+    padding: 50px 0;
+    gap: 30px;
+  }
+
+  .work-box:last-child {
+    border-bottom: none;
+  }
+
+  .work-flex .work-box:nth-child(even) {
+    flex-direction: column;
   }
 
   .career-section {
@@ -1905,6 +1928,10 @@ div.resume-button span {
 }
 
 @media screen and (max-width: 900px) {
+  .resume-button {
+    display: none;
+  }
+
   .whatIDO {
     flex-direction: column;
   }
