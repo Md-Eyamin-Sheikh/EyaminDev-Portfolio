@@ -96,6 +96,7 @@ export const portfolioData = {
       number: "01",
       name: "StudyHub",
       category: "Collaborative study platform",
+      badge: "LIVE",
       summary:
         "A MERN-stack educational platform connecting students and tutors for real-time collaborative sessions with secure payment and content management.",
       highlights: [
@@ -113,11 +114,16 @@ export const portfolioData = {
       ],
       image: "/images/studyhub-project.svg",
       imageAlt: "StudyHub project preview",
+      github: "https://github.com/eyamin/studyhub",
+      live: "https://studyhub-live.vercel.app",
+      role: "Fullstack Developer",
+      year: "2024",
     },
     {
       number: "02",
       name: "SportZone",
       category: "Athletic events platform",
+      badge: "OPEN SOURCE",
       summary:
         "A full-stack sports event management app for discovering, booking, and managing athletic events with an AI-powered assistant and personalized dashboards.",
       highlights: [
@@ -135,6 +141,10 @@ export const portfolioData = {
       ],
       image: "/images/sportzone-project.svg",
       imageAlt: "SportZone project preview",
+      github: "https://github.com/eyamin/sportzone",
+      live: "https://sportzone-live.vercel.app",
+      role: "Fullstack Developer",
+      year: "2024",
     },
   ],
 } as const;
