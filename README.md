@@ -11,6 +11,8 @@ A modern **React + TypeScript + Vite** personal portfolio website featuring:
 * GSAP motion system
 * Three.js real-time rendering
 
+**Live Site:** https://precious-kashata-3bcd4b.netlify.app/
+
 ---
 
 # 📌 Project Overview
