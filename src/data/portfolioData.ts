@@ -4,12 +4,12 @@ export const portfolioData = {
     heroFirstName: "MD EYAMIN",
     heroLastName: "SHEIKH",
     initials: "MES",
-    role: "Full-Stack Web Developer",
+    role: "Fullstack Developer",
     secondaryRole: "MERN Stack Developer",
     location: "Bogura, Bangladesh",
     phone: "+8801775012014",
     email: "mdeyaminshekh0@gmail.com",
-    resumePath: "/Md_Eyamin_Shekh_Resume%20(1).pdf",
+    resumePath: "/Md_Eyamin_Shekh_Resume .pdf",
   },
   summary:
     "Results-driven full-stack developer with hands-on experience building end-to-end MERN and Next.js applications. Proficient in React, Node.js, TypeScript, and MongoDB, with a strong focus on scalable architecture, clean code, and seamless user experience.",
@@ -36,7 +36,7 @@ export const portfolioData = {
   ],
   services: [
     {
-      title: "FRONTEND",
+      title: "FULLSTACK",
       kicker: "Responsive React and Next.js interfaces",
       description:
         "I build clean, responsive user interfaces with reusable components, strong type safety, and a smooth experience across desktop and mobile.",
@@ -70,7 +70,7 @@ export const portfolioData = {
   ],
   journey: [
     {
-      role: "Full-Stack Web Developer",
+      role: "Fullstack Developer",
       organization: "MERN Stack Project Builder",
       year: "NOW",
       description:
@@ -94,7 +94,7 @@ export const portfolioData = {
   projects: [
     {
       number: "01",
-      name: " E-Commerce",
+      name: "E-Commerce",
       category: "E-Commerce Platform",
       badge: "LIVE",
       summary:
