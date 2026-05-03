@@ -1,15 +1,14 @@
-
 # EyaminDev Portfolio — Full Project Technical Documentation
 
 A modern **React + TypeScript + Vite** personal portfolio website featuring:
 
-* Cinematic intro loading experience
-* Fully animated 3D character
-* Scroll-driven storytelling
-* Interactive tech stack physics scene
-* Responsive premium UI
-* GSAP motion system
-* Three.js real-time rendering
+- Cinematic intro loading experience
+- Fully animated 3D character
+- Scroll-driven storytelling
+- Interactive tech stack physics scene
+- Responsive premium UI
+- GSAP motion system
+- Three.js real-time rendering
 
 **Live Site:** https://precious-kashata-3bcd4b.netlify.app/
 
@@ -21,12 +20,12 @@ This portfolio is designed to showcase a Full Stack Developer in a premium and m
 
 Instead of using a normal static portfolio, this project combines:
 
-* Traditional frontend UI
-* Advanced animation systems
-* Real-time 3D rendering
-* Scroll choreography
-* Physics interactions
-* Clean architecture
+- Traditional frontend UI
+- Advanced animation systems
+- Real-time 3D rendering
+- Scroll choreography
+- Physics interactions
+- Clean architecture
 
 ---
 
@@ -50,34 +49,34 @@ Instead of using a normal static portfolio, this project combines:
 
 ## Frontend Stack
 
-* React 18
-* TypeScript
-* Vite
+- React 18
+- TypeScript
+- Vite
 
 ## Animation Stack
 
-* GSAP
-* ScrollTrigger
-* @gsap/react
+- GSAP
+- ScrollTrigger
+- @gsap/react
 
 ## 3D Stack
 
-* Three.js
-* three-stdlib
-* GLTFLoader
-* DRACOLoader
-* HDR Environment Maps
+- Three.js
+- three-stdlib
+- GLTFLoader
+- DRACOLoader
+- HDR Environment Maps
 
 ## Secondary 3D Scene
 
-* @react-three/fiber
-* @react-three/drei
-* @react-three/rapier
+- @react-three/fiber
+- @react-three/drei
+- @react-three/rapier
 
 ## UI Tools
 
-* react-icons
-* react-fast-marquee
+- react-icons
+- react-fast-marquee
 
 ---
 
@@ -115,10 +114,10 @@ ReactDOM.createRoot(...).render(<App />)
 
 Loads:
 
-* Loading Provider
-* MainContainer
-* Character Scene
-* Lazy loaded components
+- Loading Provider
+- MainContainer
+- Character Scene
+- Lazy loaded components
 
 This keeps startup optimized.
 
@@ -144,15 +143,15 @@ Loading Screen → Assets Ready → Intro Animation → Main Site
 
 Builds all sections:
 
-* Navbar
-* Hero Section
-* About
-* Services
-* Career Journey
-* Projects
-* Tech Stack
-* Contact
-* Social Icons
+- Navbar
+- Hero Section
+- About
+- Services
+- Career Journey
+- Projects
+- Tech Stack
+- Contact
+- Social Icons
 
 ---
 
@@ -162,12 +161,12 @@ Builds all sections:
 
 Stores all editable content:
 
-* Name
-* Skills
-* Services
-* Experience
-* Projects
-* Contact data
+- Name
+- Skills
+- Services
+- Experience
+- Projects
+- Contact data
 
 This allows future updates without editing UI files.
 
@@ -181,12 +180,12 @@ GSAP powers nearly all premium motions.
 
 Used for:
 
-* Intro reveal
-* Scroll scenes
-* Text transitions
-* Character transitions
-* Section fades
-* Camera movement
+- Intro reveal
+- Scroll scenes
+- Text transitions
+- Character transitions
+- Section fades
+- Camera movement
 
 ---
 
@@ -200,10 +199,10 @@ Used after loading completes.
 
 Effects:
 
-* Navbar fade in
-* Hero text rise up
-* Social icons reveal
-* Character entrance
+- Navbar fade in
+- Hero text rise up
+- Social icons reveal
+- Character entrance
 
 Example:
 
@@ -212,8 +211,8 @@ gsap.from(".hero", {
   y: 60,
   opacity: 0,
   duration: 1.4,
-  ease: "power3.out"
-})
+  ease: "power3.out",
+});
 ```
 
 ---
@@ -232,9 +231,9 @@ Uses:
 gsap.timeline({
   scrollTrigger: {
     trigger: ".section",
-    scrub: true
-  }
-})
+    scrub: true,
+  },
+});
 ```
 
 ---
@@ -245,10 +244,10 @@ gsap.timeline({
 
 When user scrolls:
 
-* Character rotates
-* Camera shifts
-* Hero text fades
-* Layout transitions
+- Character rotates
+- Camera shifts
+- Hero text fades
+- Layout transitions
 
 ---
 
@@ -256,10 +255,10 @@ When user scrolls:
 
 Actions:
 
-* Camera zooms out
-* Character tilts
-* Monitor light turns on
-* Service cards reveal
+- Camera zooms out
+- Character tilts
+- Monitor light turns on
+- Service cards reveal
 
 ---
 
@@ -270,7 +269,7 @@ Character smoothly moves upward.
 Uses:
 
 ```ts
-ease: "none"
+ease: "none";
 ```
 
 Meaning:
@@ -298,9 +297,9 @@ Custom optimized lifecycle
 
 Benefits:
 
-* Better performance control
-* Cleaner animation mixer control
-* Precise camera choreography
+- Better performance control
+- Cleaner animation mixer control
+- Precise camera choreography
 
 ---
 
@@ -334,8 +333,8 @@ Uses AES-CBC decryption for protected model file.
 
 Purpose:
 
-* Prevent direct model theft
-* Hide source asset
+- Prevent direct model theft
+- Hide source asset
 
 ---
 
@@ -348,7 +347,7 @@ Purpose:
 Uses:
 
 ```ts
-THREE.AnimationMixer
+THREE.AnimationMixer;
 ```
 
 Animations loaded from GLTF clips.
@@ -359,12 +358,12 @@ Animations loaded from GLTF clips.
 
 ## Intro Clip
 
-* Plays once
-* Holds final pose
+- Plays once
+- Holds final pose
 
 ```ts
-LoopOnce
-clampWhenFinished = true
+LoopOnce;
+clampWhenFinished = true;
 ```
 
 ---
@@ -373,10 +372,10 @@ clampWhenFinished = true
 
 Continuously running:
 
-* key1
-* key2
-* key5
-* key6
+- key1
+- key2
+- key5
+- key6
 
 These add subtle life movement.
 
@@ -386,9 +385,9 @@ These add subtle life movement.
 
 Filtered to only selected bones:
 
-* Arms
-* Hands
-* Legs
+- Arms
+- Hands
+- Legs
 
 This prevents full-body distortion.
 
@@ -413,8 +412,8 @@ Head follows cursor.
 Logic:
 
 ```ts
-targetX = mouseX * Math.PI / 6
-head.rotation.y = lerp(current, targetX, 0.08)
+targetX = (mouseX * Math.PI) / 6;
+head.rotation.y = lerp(current, targetX, 0.08);
 ```
 
 ---
@@ -424,7 +423,7 @@ head.rotation.y = lerp(current, targetX, 0.08)
 Because movement uses:
 
 ```ts
-THREE.MathUtils.lerp()
+THREE.MathUtils.lerp();
 ```
 
 Meaning:
@@ -439,8 +438,8 @@ Instead of snapping instantly.
 
 On mobile:
 
-* Return speed slower
-* More natural feel
+- Return speed slower
+- More natural feel
 
 ---
 
@@ -452,10 +451,10 @@ On mobile:
 
 Lights used:
 
-* Directional Light
-* Rim Light
-* Point Light
-* HDR Environment
+- Directional Light
+- Rim Light
+- Point Light
+- HDR Environment
 
 ---
 
@@ -485,15 +484,15 @@ Very premium detail.
 
 Built separately using:
 
-* React Three Fiber
-* Rapier Physics
+- React Three Fiber
+- Rapier Physics
 
 Features:
 
-* Floating skill icons
-* Mouse interaction
-* Sphere collisions
-* Dynamic movement
+- Floating skill icons
+- Mouse interaction
+- Sphere collisions
+- Dynamic movement
 
 Feels alive and modern.
 
@@ -523,12 +522,12 @@ Feels alive and modern.
 
 Because it combines:
 
-* Motion design
-* Storytelling scroll
-* Real-time graphics
-* Smart transitions
-* Human-like character reactions
-* Clean responsive layout
+- Motion design
+- Storytelling scroll
+- Real-time graphics
+- Smart transitions
+- Human-like character reactions
+- Clean responsive layout
 
 ---
 
@@ -547,14 +546,14 @@ Because it combines:
 
 Recommended next upgrades:
 
-* Dark / Light theme switcher
-* CMS dashboard
-* Blog system
-* Multilingual support
-* SEO optimization
-* Analytics
-* AI chatbot assistant
-* Contact automation
+- Dark / Light theme switcher
+- CMS dashboard
+- Blog system
+- Multilingual support
+- SEO optimization
+- Analytics
+- AI chatbot assistant
+- Contact automation
 
 ---
 

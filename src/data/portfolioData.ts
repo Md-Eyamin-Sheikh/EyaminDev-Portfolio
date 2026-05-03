@@ -146,5 +146,32 @@ export const portfolioData = {
       role: "Fullstack Developer",
       year: "2024",
     },
+    {
+      number: "03",
+      name: "EyaminDev Portfolio",
+      category: "Personal portfolio website",
+      badge: "LIVE",
+      summary:
+        "A modern React + TypeScript + Vite personal portfolio featuring a cinematic intro, fully animated 3D character, scroll-driven storytelling, and interactive tech stack physics scene.",
+      highlights: [
+        "Built an advanced 3D character scene with Three.js and custom animation mixer control.",
+        "Engineered a scroll-driven cinematic storytelling experience using GSAP and ScrollTrigger.",
+        "Integrated a Rapier physics-based tech stack scene with React Three Fiber.",
+      ],
+      stack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Three.js",
+        "GSAP",
+        "Tailwind CSS",
+      ],
+      image: "/images/Hero.png",
+      imageAlt: "EyaminDev Portfolio Hero Section",
+      github: "https://github.com/eyamin/Portfolio-Web",
+      live: "https://precious-kashata-3bcd4b.netlify.app/",
+      role: "Fullstack Developer",
+      year: "2024",
+    },
   ],
 } as const;
