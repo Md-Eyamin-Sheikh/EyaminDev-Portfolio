@@ -1987,6 +1987,26 @@ div.resume-button span {
   .brand-logo-wordmark {
     font-size: 0.95rem;
   }
+
+  .about-me {
+    max-width: calc(100% - 40px);
+  }
+
+  .about-me h3 {
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+
+  .about-me p {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+  }
+
+  .about-me .about-meta {
+    font-size: 13px;
+    line-height: 20px;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -2723,6 +2743,11 @@ div.resume-button span {
   .what-box {
     max-width: calc(100% - 25px);
     margin: 0;
+  }
+
+  .about-me p {
+    font-size: 20px;
+    line-height: 26px;
   }
 }
 
