@@ -26,10 +26,6 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-}));
-
 type SphereProps = {
   vec?: THREE.Vector3;
   scale: number;
@@ -124,8 +120,14 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   );
 }
 
-function PhysicsScene({ isActive, materials }: { isActive: boolean; materials: THREE.MeshPhysicalMaterial[] }) {
+function PhysicsScene({ isActive, materials, sphereCount }: { isActive: boolean; materials: THREE.MeshPhysicalMaterial[]; sphereCount: number }) {
   const [ready, setReady] = useState(false);
+
+  const spheres = useMemo(() => {
+    return [...Array(sphereCount)].map(() => ({
+      scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+    }));
+  }, [sphereCount]);
 
   useEffect(() => {
     import("@dimforge/rapier3d-compat").then((RAPIER) => {
@@ -154,6 +156,7 @@ function PhysicsScene({ isActive, materials }: { isActive: boolean; materials: T
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isMobile] = useState(() => window.innerWidth <= 768);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -216,7 +219,7 @@ const TechStack = () => {
         />
         <directionalLight position={[0, 5, -4]} intensity={2} />
         <Suspense fallback={null}>
-          <PhysicsScene isActive={isActive} materials={materials} />
+          <PhysicsScene isActive={isActive} materials={materials} sphereCount={isMobile ? 12 : 30} />
         </Suspense>
         <Environment
           files="/models/char_enviorment.hdr"

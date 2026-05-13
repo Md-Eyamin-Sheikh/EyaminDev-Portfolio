@@ -2678,6 +2678,27 @@ div.resume-button span {
 
   .techstack h2 {
     font-size: 40px;
+    top: 80px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .techstack h2 {
+    font-size: 32px;
+    top: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .techstack {
+    height: 70vh;
+    margin: 30px auto -60px;
+  }
+
+  .techstack h2 {
+    font-size: 24px;
+    top: 40px;
+    letter-spacing: 2px;
   }
 }
 
