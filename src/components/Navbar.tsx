@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import BrandLogo from "./BrandLogo";
 import { portfolioData } from "../data/portfolioData";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,6 +36,10 @@ const createSmoother = (): SmootherLike => ({
 export let smoother: SmootherLike = createSmoother();
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLUListElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     smoother = createSmoother();
 
@@ -42,6 +47,8 @@ const Navbar = () => {
     smoother.paused(true);
 
     const handleLinkClick = (e: Event) => {
+      setIsMenuOpen(false);
+
       if (window.innerWidth > 1024) {
         e.preventDefault();
         const elem = e.currentTarget as HTMLAnchorElement;
@@ -51,10 +58,13 @@ const Navbar = () => {
     };
 
     const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
       ScrollTrigger.refresh();
     };
 
-    const links = document.querySelectorAll(".header ul a");
+    const links = document.querySelectorAll(".navbar-menu a");
     links.forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", handleLinkClick);
@@ -70,6 +80,44 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!isMenuOpen) return;
+
+      const target = event.target as Node;
+      if (
+        navRef.current?.contains(target) ||
+        menuButtonRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      setIsMenuOpen(false);
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  const navLinks = [
+    { href: "#about", text: "ABOUT" },
+    { href: "#journey", text: "JOURNEY" },
+    { href: "#work", text: "PROJECTS" },
+    { href: "#contact", text: "CONTACT" },
+  ];
+
   return (
     <>
       <div className="header">
@@ -88,27 +136,30 @@ const Navbar = () => {
         >
           {portfolioData.person.email}
         </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#journey" href="#journey">
-              <HoverLinks text="JOURNEY" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="PROJECTS" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
+        <button
+          ref={menuButtonRef}
+          type="button"
+          className="navbar-menu-button"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          data-cursor="disable"
+          onClick={() => setIsMenuOpen((current) => !current)}
+        >
+          <BsThreeDotsVertical aria-hidden="true" />
+        </button>
+        <ul
+          id="primary-navigation"
+          ref={navRef}
+          className={`navbar-menu${isMenuOpen ? " navbar-menu--open" : ""}`}
+        >
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a data-href={link.href} href={link.href}>
+                <HoverLinks text={link.text} />
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
