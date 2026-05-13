@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { portfolioData } from "../data/portfolioData";
 import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
 
@@ -210,9 +210,63 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
    ═══════════════════════════════════════════════ */
 const Work = () => {
   const [isPinnedLayout, setIsPinnedLayout] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const flexRef = useRef<HTMLDivElement>(null);
+
+  /* ── Track carousel scroll position for pagination dots ── */
+  useEffect(() => {
+    const flex = flexRef.current;
+    if (!flex) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const idx = Math.round(flex.scrollLeft / flex.clientWidth);
+          setActiveIndex(Math.min(idx, portfolioData.projects.length - 1));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    flex.addEventListener("scroll", handleScroll, { passive: true });
+    return () => flex.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToCard = useCallback((index: number) => {
+    const flex = flexRef.current;
+    if (!flex) return;
+    const target = flex.children[index] as HTMLElement;
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    }
+  }, []);
+
+  /* ── Drag / touch inertia helper ── */
+  const dragState = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const flex = flexRef.current;
+    if (!flex) return;
+    dragState.current.isDragging = true;
+    dragState.current.startX = e.touches[0].pageX;
+    dragState.current.scrollLeft = flex.scrollLeft;
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!dragState.current.isDragging) return;
+    const flex = flexRef.current;
+    if (!flex) return;
+    const dx = e.touches[0].pageX - dragState.current.startX;
+    flex.scrollLeft = dragState.current.scrollLeft - dx;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    dragState.current.isDragging = false;
+  }, []);
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -294,28 +348,10 @@ const Work = () => {
       };
     });
 
-    /* ── Mobile: vertical fade-up ── */
+    /* ── Mobile: carousel (CSS scroll-snap handles layout) ── */
     mm.add("(max-width: 1025px)", () => {
       setIsPinnedLayout(false);
-
-      const cards = document.querySelectorAll(".work-card");
-      cards.forEach((card) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 80 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      });
+      gsap.set(".work-card", { clearProps: "all" });
     });
 
     return () => {
@@ -346,10 +382,28 @@ const Work = () => {
           </p>
         </div>
 
-        {/* ── Cards track ── */}
-        <div ref={flexRef} className="work-flex">
+        {/* ── Cards track (carousel on mobile) ── */}
+        <div
+          ref={flexRef}
+          className="work-flex"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {portfolioData.projects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+
+        {/* ── Pagination dots (visible only on mobile) ── */}
+        <div className="work-pagination">
+          {portfolioData.projects.map((_, i) => (
+            <button
+              key={i}
+              className={`work-pagination__dot ${i === activeIndex ? "work-pagination__dot--active" : ""}`}
+              onClick={() => scrollToCard(i)}
+              aria-label={`Go to project ${i + 1}`}
+            />
           ))}
         </div>
       </div>

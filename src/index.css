@@ -2332,12 +2332,46 @@ div.resume-button span {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PAGINATION DOTS — mobile carousel
+   ═══════════════════════════════════════════════════════════════ */
+
+.work-pagination {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 0 8px;
+}
+
+.work-pagination__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  flex-shrink: 0;
+}
+
+.work-pagination__dot--active {
+  width: 28px;
+  border-radius: 4px;
+  background: var(--accentColor);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE & TABLET — carousel layout
+   ═══════════════════════════════════════════════════════════════ */
+
 @media screen and (max-width: 1025px) {
   .work-section {
     height: auto;
     min-height: auto;
     overflow: visible;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
   }
 
   .work-section .work-container {
@@ -2346,24 +2380,56 @@ div.resume-button span {
 
   .work-section__header {
     padding-top: 60px;
-    padding-bottom: 32px;
+    padding-bottom: 28px;
   }
 
+  /* ── Carousel track ── */
   .work-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 4px 16px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     height: auto;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
+    flex: none;
+    align-items: stretch;
   }
 
+  .work-flex::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Carousel card ── */
   .work-card {
-    width: 100%;
-    max-width: 520px;
+    flex: 0 0 calc(100vw - 40px);
+    max-width: 420px;
+    width: auto;
     min-height: auto;
+    scroll-snap-align: start;
+    margin: 0;
   }
 
   .work-card__image-wrap {
-    height: 220px;
+    height: 200px;
+  }
+
+  .work-card__info {
+    padding: 18px 20px;
+  }
+
+  .work-card__name {
+    font-size: 22px;
+  }
+
+  .work-card__category {
+    font-size: 13px;
   }
 
   /* Show overlay content inline on mobile */
@@ -2375,11 +2441,38 @@ div.resume-button span {
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    padding: 0 24px 24px;
+    padding: 0 20px 20px;
   }
 
   .work-card__overlay-content {
     transform: none;
+    gap: 12px;
+  }
+
+  .work-card__overlay-name {
+    font-size: 20px;
+  }
+
+  .work-card__overlay-summary {
+    font-size: 12px;
+  }
+
+  .work-card__overlay-highlights li {
+    font-size: 11px;
+  }
+
+  .work-card__stack-chips {
+    gap: 4px;
+  }
+
+  .work-card__chip {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .work-card__btn {
+    font-size: 12px;
+    padding: 8px 14px;
   }
 
   .work-card__info--hidden {
@@ -2395,11 +2488,75 @@ div.resume-button span {
     display: none;
   }
 
-  .career-section {
-    padding: 70px 0 0;
-    padding-top: 220px;
-    margin-top: -200px;
-    margin-bottom: 0;
+  .work-card__glow {
+    display: none;
+  }
+
+  .work-section__subtitle {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .work-pagination {
+    display: flex;
+  }
+}
+
+/* Tablet refinements */
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+  .work-card {
+    flex: 0 0 calc(50vw - 28px);
+    max-width: 420px;
+  }
+
+  .work-flex {
+    gap: 20px;
+    padding: 4px 24px 8px;
+  }
+}
+
+/* Small phone refinements */
+@media screen and (max-width: 480px) {
+  .work-card {
+    flex: 0 0 calc(100vw - 24px);
+  }
+
+  .work-flex {
+    padding: 4px 12px 8px;
+    gap: 12px;
+  }
+
+  .work-section__header {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .work-section__title {
+    font-size: 28px;
+  }
+
+  .work-card__image-wrap {
+    height: 170px;
+  }
+
+  .work-card__name {
+    font-size: 18px;
+  }
+
+  .work-card__info {
+    padding: 14px 16px;
+  }
+
+  .work-card__overlay {
+    padding: 0 16px 16px;
+  }
+
+  .work-card__overlay-name {
+    font-size: 17px;
+  }
+
+  .work-card__overlay-actions {
+    flex-direction: column;
   }
 }
 
