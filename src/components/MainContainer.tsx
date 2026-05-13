@@ -3,6 +3,7 @@ import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
+import Footer from "./Footer";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
@@ -49,6 +50,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
               </Suspense>
             )}
             <Contact />
+            <Footer />
           </div>
         </div>
       </div>

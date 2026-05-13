@@ -11,6 +11,12 @@ export const portfolioData = {
     email: "mdeyaminshekh0@gmail.com",
     resumePath: "/Md_Eyamin_Shekh_Resume .pdf",
   },
+  social: {
+    linkedin: "https://www.linkedin.com/in/eyamin-sheikh/",
+    github: "http://github.com/Md-Eyamin-Sheikh",
+    facebook: "https://web.facebook.com/md.yeaimin.1",
+    x: "https://x.com/eyamin_2004",
+  },
   summary:
     "Results-driven full-stack developer with hands-on experience building end-to-end MERN and Next.js applications. Proficient in React, Node.js, TypeScript, and MongoDB, with a strong focus on scalable architecture, clean code, and seamless user experience.",
   achievements:

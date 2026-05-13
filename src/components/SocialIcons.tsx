@@ -5,7 +5,9 @@ import {
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
-import { FiPhone } from "react-icons/fi";
+import { FiPhone, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { portfolioData } from "../data/portfolioData";
 
 const SocialIcons = () => {
@@ -58,19 +60,45 @@ const SocialIcons = () => {
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
+        
         <span>
-          <a href={`mailto:${portfolioData.person.email}`} aria-label="Send email">
-            <MdEmail />
+          <a
+            href={portfolioData.social.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn profile"
+          >
+            <FiLinkedin />
           </a>
         </span>
         <span>
-          <a href={`tel:${portfolioData.person.phone}`} aria-label="Call phone number">
-            <FiPhone />
+          <a
+            href={portfolioData.social.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub profile"
+          >
+            <FiGithub />
           </a>
         </span>
         <span>
-          <a href="#contact" aria-label="View contact information">
-            <MdLocationOn />
+          <a
+            href={portfolioData.social.facebook}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook profile"
+          >
+            <FaFacebook />
+          </a>
+        </span>
+        <span>
+          <a
+            href={portfolioData.social.x}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="X profile"
+          >
+            <FaXTwitter />
           </a>
         </span>
       </div>
