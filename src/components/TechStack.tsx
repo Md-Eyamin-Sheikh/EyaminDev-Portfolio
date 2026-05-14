@@ -121,23 +121,11 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 }
 
 function PhysicsScene({ isActive, materials, sphereCount }: { isActive: boolean; materials: THREE.MeshPhysicalMaterial[]; sphereCount: number }) {
-  const [ready, setReady] = useState(false);
-
   const spheres = useMemo(() => {
     return [...Array(sphereCount)].map(() => ({
       scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
     }));
   }, [sphereCount]);
-
-  useEffect(() => {
-    import("@dimforge/rapier3d-compat").then((RAPIER) => {
-      RAPIER.init().then(() => {
-        setReady(true);
-      });
-    });
-  }, []);
-
-  if (!ready) return null;
 
   return (
     <Physics gravity={[0, 0, 0]}>
