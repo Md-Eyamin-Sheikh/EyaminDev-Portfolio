@@ -1,11 +1,7 @@
-import {
-  MdEmail,
-  MdLocationOn,
-} from "react-icons/md";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
-import { FiPhone, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiLinkedin, FiGithub } from "react-icons/fi";
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { portfolioData } from "../data/portfolioData";
