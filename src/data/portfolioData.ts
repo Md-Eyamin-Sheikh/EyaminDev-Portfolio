@@ -4,12 +4,28 @@ export const portfolioData = {
     heroFirstName: "MD EYAMIN",
     heroLastName: "SHEIKH",
     initials: "MES",
-    role: "Fullstack Developer",
-    secondaryRole: "MERN Stack Developer",
+    role: "Fullstack Developer & AI Builder",
+    secondaryRole: "AI Agents · MERN Stack",
     location: "Bogura, Bangladesh",
     phone: "+8801775012014",
     email: "mdeyaminshekh0@gmail.com",
     resumePath: "/Md_Eyamin_Shekh_Resume .pdf",
+    contactBlurb:
+      "Fullstack developer building AI agents, automations, and production MERN applications with modern, responsive user experiences.",
+  },
+  landing: {
+    greeting: "Hello! I'm",
+    cycleFrameworksA: "React",
+    cycleFrameworksB: "Next.js",
+    cycleTechA: "TypeScript",
+    cycleTechB: "AI Agents",
+  },
+  workSection: {
+    kicker: "Portfolio",
+    title: "Selected",
+    titleAccent: "Projects",
+    subtitle:
+      "A curated selection of production-ready applications — from MERN platforms to AI-powered features.",
   },
   social: {
     linkedin: "https://www.linkedin.com/in/eyamin-sheikh/",
@@ -18,9 +34,9 @@ export const portfolioData = {
     x: "https://x.com/eyamin_2004",
   },
   summary:
-    "Results-driven full-stack developer with hands-on experience building end-to-end MERN and Next.js applications. Proficient in React, Node.js, TypeScript, and MongoDB, with a strong focus on scalable architecture, clean code, and seamless user experience.",
+    "Full-stack developer specialising in building AI agents, automated workflows, and production MERN / Next.js applications. I turn complex business processes into AI-powered features that integrate LLMs and function-calling into real products.",
   achievements:
-    "Completed multiple production-level projects featuring real-time data, payment integration, and AI-powered features.",
+    "Shipped multiple production projects featuring real-time data, payment integration, and AI-powered features; currently exploring Cloudflare Workers and LLM orchestration for lightweight AI agent deployments.",
   languages: ["Bangla (Native)", "English (Professional)"],
   skillGroups: [
     {
@@ -32,55 +48,55 @@ export const portfolioData = {
       items: ["React.js", "Next.js", "React Router", "Tailwind CSS"],
     },
     {
-      label: "Back-End",
-      items: ["Node.js", "Express.js", "MongoDB", "Firebase", "REST API"],
+      label: "Back-End & AI",
+      items: ["Node.js", "Express.js", "MongoDB", "Firebase", "REST API", "Gemini API"],
     },
     {
       label: "Tools",
-      items: ["Git", "GitHub", "Vercel", "Netlify", "Stripe"],
+      items: ["Git", "GitHub", "Vercel", "Netlify", "Stripe", "Cloudflare Workers"],
     },
   ],
   services: [
     {
-      title: "FULLSTACK",
-      kicker: "Responsive React and Next.js interfaces",
+      title: "AI AGENTS",
+      kicker: "LLM-powered agents & automations",
       description:
-        "I build clean, responsive user interfaces with reusable components, strong type safety, and a smooth experience across desktop and mobile.",
+        "I design and integrate AI agents, automated workflows, and LLM-powered features into real products — connecting language models to APIs, databases, and business logic so they act as reliable AI employees.",
       tools: [
-        "React.js",
-        "Next.js",
+        "Gemini API",
+        "Function Calling",
+        "RAG",
+        "Cloudflare Workers",
+        "Node.js",
+        "REST API",
         "TypeScript",
-        "Tailwind CSS",
-        "React Router",
         "JavaScript",
-        "HTML5",
-        "CSS3",
       ],
     },
     {
-      title: "MERN STACK",
-      kicker: "Full-stack product features",
+      title: "FULLSTACK",
+      kicker: "End-to-end MERN & Next.js products",
       description:
-        "I ship end-to-end product flows with authentication, dashboards, REST APIs, MongoDB data models, Firebase services, and Stripe payment integration.",
+        "I ship full-stack product flows with authentication, dashboards, REST APIs, MongoDB data models, Firebase services, and Stripe payment integration — from database schema to polished UI.",
       tools: [
+        "React.js",
+        "Next.js",
         "Node.js",
         "Express.js",
         "MongoDB",
         "Firebase",
-        "REST API",
         "Stripe",
-        "GitHub",
-        "Vercel",
+        "Tailwind CSS",
       ],
     },
   ],
   journey: [
     {
-      role: "Fullstack Developer",
-      organization: "MERN Stack Project Builder",
+      role: "Fullstack Developer & AI Builder",
+      organization: "MERN Stack · AI Agents · Automations",
       year: "NOW",
       description:
-        "Building production-level portfolio projects with real-time features, role-based access, payment workflows, and AI-assisted interactions.",
+        "Building production-level applications with real-time features, role-based access, payment workflows, and AI-powered integrations — including LLM function-calling, RAG pipelines, and Cloudflare Worker-hosted AI endpoints.",
     },
     {
       role: "Diploma in Engineering",
@@ -185,19 +201,19 @@ export const portfolioData = {
       category: "Personal portfolio website",
       badge: "LIVE",
       summary:
-        "A modern React + TypeScript + Vite personal portfolio featuring a cinematic intro, fully animated 3D character, scroll-driven storytelling, and interactive tech stack physics scene.",
+        "A modern React + TypeScript + Vite personal portfolio featuring cinematic scroll storytelling, an interactive physics-based tech stack scene, and AI agent demos — built to showcase both frontend craft and AI integration skills.",
       highlights: [
-        "Built an advanced 3D character scene with Three.js and custom animation mixer control.",
         "Engineered a scroll-driven cinematic storytelling experience using GSAP and ScrollTrigger.",
         "Integrated a Rapier physics-based tech stack scene with React Three Fiber.",
+        "Added live AI agent demos powered by a Cloudflare Worker backend.",
       ],
       stack: [
         "React",
         "TypeScript",
         "Vite",
-        "Three.js",
         "GSAP",
         "Tailwind CSS",
+        "Cloudflare Workers",
       ],
       image: "/images/Hero.png",
       imageAlt: "EyaminDev Portfolio Hero Section",

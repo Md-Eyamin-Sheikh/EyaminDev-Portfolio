@@ -59,8 +59,7 @@ const Contact = () => {
               </span>
             </h2>
             <p className="mt-5 max-w-80 text-sm leading-7 text-[#adacac] md:text-[15px]">
-              Fullstack Developer focused on building MERN applications with modern,
-              responsive user experiences.
+              {portfolioData.person.contactBlurb}
             </p>
             <h5 className="mb-0 mt-6 flex items-center gap-2.5 text-lg font-medium leading-5 opacity-50 md:text-xl">
               <MdCopyright /> {currentYear}

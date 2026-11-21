@@ -2,8 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, useCallback, useEffect } from "react";
-import { portfolioData } from "../data/portfolioData";
-import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
+import { portfolioData } from "../data/portfolioData";import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -372,13 +371,12 @@ const Work = () => {
       <div ref={containerRef} className="work-container section-container">
         {/* ── Section header ── */}
         <div className="work-section__header">
-          <span className="work-section__kicker">Portfolio</span>
+          <span className="work-section__kicker">{portfolioData.workSection.kicker}</span>
           <h2 className="work-section__title">
-            Selected <span>Projects</span>
+            {portfolioData.workSection.title} <span>{portfolioData.workSection.titleAccent}</span>
           </h2>
           <p className="work-section__subtitle">
-            A curated selection of production-ready applications built with modern
-            technologies and best practices.
+            {portfolioData.workSection.subtitle}
           </p>
         </div>
 
