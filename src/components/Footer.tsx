@@ -47,7 +47,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="flex items-center justify-center gap-1 text-sm opacity-50">
-        <MdCopyright /> {currentYear} {portfolioData.person.name}. All rights reserved.
+        <MdCopyright /> {currentYear} {portfolioData.person.name}. {portfolioData.footer.rightsReserved}
       </p>
     </footer>
   );

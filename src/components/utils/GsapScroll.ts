@@ -6,6 +6,15 @@ import gsap from "gsap";
 export function setCharTimeline(..._args: any[]) {}
 
 export function setHeroTimeline() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.set([".landing-container", ".about-me", ".about-section", ".whatIDO"], {
+      opacity: 1,
+      y: 0,
+      clearProps: "transform",
+    });
+    return;
+  }
+
   // Path B: Plain ScrollTrigger fade-up and parallax transitions without 3D models
   const tlLanding = gsap.timeline({
     scrollTrigger: {
@@ -64,6 +73,14 @@ export function setHeroTimeline() {
 }
 
 export function setAllTimeline() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.set([".career-timeline", ".career-info-box"], {
+      opacity: 1,
+      maxHeight: "100%",
+    });
+    return;
+  }
+
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".career-section",

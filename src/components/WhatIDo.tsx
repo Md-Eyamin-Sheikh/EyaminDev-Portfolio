@@ -87,7 +87,7 @@ const WhatIDo = () => {
               <h3>{portfolioData.services[0].title}</h3>
               <h4>{portfolioData.services[0].kicker}</h4>
               <p>{portfolioData.services[0].description}</p>
-              <h5>Skillset & tools</h5>
+              <h5>{portfolioData.servicesLabels.skillsetAndTools}</h5>
               <div className="what-content-flex">
                 {portfolioData.services[0].tools.map((tool) => (
                   <div className="what-tags" key={tool}>
@@ -120,7 +120,7 @@ const WhatIDo = () => {
               <h3>{portfolioData.services[1].title}</h3>
               <h4>{portfolioData.services[1].kicker}</h4>
               <p>{portfolioData.services[1].description}</p>
-              <h5>Skillset & tools</h5>
+              <h5>{portfolioData.servicesLabels.skillsetAndTools}</h5>
               <div className="what-content-flex">
                 {portfolioData.services[1].tools.map((tool) => (
                   <div className="what-tags" key={tool}>

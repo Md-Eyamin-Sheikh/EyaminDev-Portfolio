@@ -2,28 +2,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, useCallback, useEffect } from "react";
-import { portfolioData } from "../data/portfolioData";import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
+import { portfolioData } from "../data/portfolioData";
+import StatusBadge from "./StatusBadge";
+import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-/* ─── Badge color map ─── */
-const badgeColors: Record<string, { bg: string; text: string; glow: string }> = {
-  LIVE: {
-    bg: "rgba(52, 211, 153, 0.15)",
-    text: "#34d399",
-    glow: "0 0 12px rgba(52,211,153,0.3)",
-  },
-  "OPEN SOURCE": {
-    bg: "rgba(96, 165, 250, 0.15)",
-    text: "#60a5fa",
-    glow: "0 0 12px rgba(96,165,250,0.3)",
-  },
-  "CLIENT PROJECT": {
-    bg: "rgba(251, 191, 36, 0.15)",
-    text: "#fbbf24",
-    glow: "0 0 12px rgba(251,191,36,0.3)",
-  },
-};
 
 /* ═══════════════════════════════════════════════
    PROJECT CARD COMPONENT
@@ -37,8 +20,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-
-  const badge = badgeColors[project.badge] ?? badgeColors["LIVE"];
 
   /* Mouse glow follow effect */
   const handleMouseMove = useCallback(
@@ -95,17 +76,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <div className="work-card__glow" />
 
       {/* ── Badge ── */}
-      <span
-        className="work-card__badge"
-        style={{
-          background: badge.bg,
-          color: badge.text,
-          boxShadow: badge.glow,
-        }}
-      >
-        <span className="work-card__badge-dot" style={{ background: badge.text }} />
-        {project.badge}
-      </span>
+      <StatusBadge status={project.badge} className="work-card__badge" />
 
       {/* ── Image area ── */}
       <div className="work-card__image-wrap">
@@ -139,13 +110,13 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
           {/* Overview */}
           <div className="work-card__overlay-section">
-            <h4 className="work-card__overlay-label">Overview</h4>
+            <h4 className="work-card__overlay-label">{portfolioData.workSection.labels.overview}</h4>
             <p className="work-card__overlay-summary">{project.summary}</p>
           </div>
 
           {/* Highlights */}
           <div className="work-card__overlay-section">
-            <h4 className="work-card__overlay-label">Key Features</h4>
+            <h4 className="work-card__overlay-label">{portfolioData.workSection.labels.keyFeatures}</h4>
             <ul className="work-card__overlay-highlights">
               {project.highlights.map((h, i) => (
                 <li key={i}>
@@ -158,7 +129,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
           {/* Tech Stack Chips */}
           <div className="work-card__overlay-section">
-            <h4 className="work-card__overlay-label">Tech Stack</h4>
+            <h4 className="work-card__overlay-label">{portfolioData.workSection.labels.techStack}</h4>
             <div className="work-card__stack-chips">
               {project.stack.map((tech) => (
                 <span key={tech} className="work-card__chip">
@@ -178,7 +149,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                 className="work-card__btn work-card__btn--secondary"
               >
                 <FiGithub />
-                <span>Source Code</span>
+                <span>{portfolioData.workSection.labels.sourceCode}</span>
               </a>
             )}
             {project.live && (
@@ -189,7 +160,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
                 className="work-card__btn work-card__btn--primary"
               >
                 <FiExternalLink />
-                <span>Live Demo</span>
+                <span>{portfolioData.workSection.labels.liveDemo}</span>
               </a>
             )}
           </div>
@@ -400,7 +371,7 @@ const Work = () => {
               key={i}
               className={`work-pagination__dot ${i === activeIndex ? "work-pagination__dot--active" : ""}`}
               onClick={() => scrollToCard(i)}
-              aria-label={`Go to project ${i + 1}`}
+              aria-label={`${portfolioData.workSection.labels.goToProject} ${i + 1}`}
             />
           ))}
         </div>

@@ -5,6 +5,25 @@ export function initialFX() {
   document.body.style.overflowY = "auto";
   smoother.paused(false);
   document.getElementsByTagName("main")[0]?.classList.add("main-active");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.set(
+      [
+        ".landing-info h3",
+        ".landing-intro h2",
+        ".landing-intro h1",
+        ".landing-h2-info",
+        ".landing-h2-1",
+        ".landing-info-h2",
+        ".header",
+        ".icons-section",
+        ".nav-fade",
+      ],
+      { opacity: 1, y: 0, filter: "none" }
+    );
+    return;
+  }
+
   gsap.to("body", {
     backgroundColor: "#0b080c",
     duration: 0.5,

@@ -46,16 +46,21 @@ const AILab: React.FC = () => {
     const promptToSend = customPrompt || activeDemo.samplePrompts[selectedPromptIndex] || "";
 
     if (apiUrl) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       try {
         setNetworkMode("live");
         const res = await fetch(`${apiUrl}/api/agent`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          signal: controller.signal,
           body: JSON.stringify({
             demoId: activeDemo.id,
             prompt: promptToSend,
           }),
         });
+        clearTimeout(timeoutId);
 
         if (!res.ok) {
           throw new Error(`API responded with ${res.status}`);
@@ -67,6 +72,7 @@ const AILab: React.FC = () => {
         setIsLoading(false);
         return;
       } catch (err) {
+        clearTimeout(timeoutId);
         console.warn("Live API call failed or unreachable, switching to deterministic simulation:", err);
       }
     }

@@ -70,10 +70,10 @@ const Loading = ({ percent }: { percent: number }) => {
           <Marquee>
             <span>{portfolioData.person.role}</span>
             <span>{portfolioData.person.secondaryRole}</span>
-            <span>React • Next.js • TypeScript • Tailwind CSS</span>
+            <span>{portfolioData.loadingScreen.techList}</span>
             <span>{portfolioData.person.role}</span>
             <span>{portfolioData.person.secondaryRole}</span>
-            <span>React • Next.js • TypeScript • Tailwind CSS</span>
+            <span>{portfolioData.loadingScreen.techList}</span>
           </Marquee>
         </div>
         <div
@@ -85,13 +85,13 @@ const Loading = ({ percent }: { percent: number }) => {
             <div className="loading-container">
               <div className="loading-content">
                 <div className="loading-content-in">
-                  Loading <span>{percent}%</span>
+                  {portfolioData.loadingScreen.loadingText} <span>{percent}%</span>
                 </div>
               </div>
               <div className="loading-box"></div>
             </div>
             <div className="loading-content2">
-              <span>Welcome</span>
+              <span>{portfolioData.loadingScreen.welcomeText}</span>
             </div>
           </div>
         </div>

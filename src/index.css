@@ -22,6 +22,38 @@
   --vh: 100svh;
 }
 
+/* Allow text selection in chat, form, code, and email areas (Rule 10) */
+input,
+textarea,
+select,
+pre,
+code,
+[contenteditable="true"],
+.select-text,
+.navbar-connect,
+#contact a[href^="mailto:"],
+#contact a[href^="tel:"],
+#contact p,
+#ai-lab textarea,
+#ai-lab pre,
+#ai-lab code {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+}
+
+/* Respect user preferences for reduced motion (Rule 10) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1,
 h2,
 h3,

@@ -27,12 +27,49 @@ export const portfolioData = {
     { href: "#work", text: "PROJECTS" },
     { href: "#contact", text: "CONTACT" },
   ],
+  aboutTitle: "About Me",
+  careerSection: {
+    title: "My journey",
+    titleAccent: "&",
+    subtitle: "education",
+  },
+  servicesLabels: {
+    skillsetAndTools: "Skillset & tools",
+  },
+  contactSection: {
+    title: "Contact",
+    emailLabel: "Email",
+    phoneLabel: "Phone",
+    locationLabel: "Location",
+    resumeLabel: "Resume",
+    viewResumeBtn: "View Resume",
+    languagesLabel: "Languages",
+    coreSkillsLabel: "Core Skills",
+    designedAndDeveloped: "Designed and Developed",
+    byText: "by",
+  },
+  footer: {
+    rightsReserved: "All rights reserved.",
+  },
+  loadingScreen: {
+    loadingText: "Loading",
+    welcomeText: "Welcome",
+    techList: "React • Next.js • TypeScript • AI Agents • Node.js",
+  },
   workSection: {
     kicker: "Portfolio",
     title: "Selected",
     titleAccent: "Projects",
     subtitle:
       "A curated selection of production-ready applications — from MERN platforms to AI-powered features.",
+    labels: {
+      overview: "Overview",
+      keyFeatures: "Key Features",
+      techStack: "Tech Stack",
+      sourceCode: "Source Code",
+      liveDemo: "Live Demo",
+      goToProject: "Go to project",
+    },
   },
   aiLab: {
     kicker: "Autonomous Agents & LLMs",
@@ -214,7 +251,7 @@ export const portfolioData = {
       number: "01",
       name: "E-Commerce",
       category: "E-Commerce Platform",
-      badge: "LIVE",
+      badge: "live",
       summary:
         "A modern, fast e-commerce web application featuring a comprehensive customer storefront and a full-featured administrative dashboard.",
       highlights: [
@@ -241,7 +278,7 @@ export const portfolioData = {
       number: "02",
       name: "StudyHub",
       category: "Collaborative study platform",
-      badge: "LIVE",
+      badge: "live",
       summary:
         "A MERN-stack educational platform connecting students and tutors for real-time collaborative sessions with secure payment and content management.",
       highlights: [
@@ -268,7 +305,7 @@ export const portfolioData = {
       number: "03",
       name: "SportZone",
       category: "Athletic events platform",
-      badge: "OPEN SOURCE",
+      badge: "prototype",
       summary:
         "A full-stack sports event management app for discovering, booking, and managing athletic events with an AI-powered assistant and personalized dashboards.",
       highlights: [
@@ -295,7 +332,7 @@ export const portfolioData = {
       number: "04",
       name: "EyaminDev Portfolio",
       category: "Personal portfolio website",
-      badge: "LIVE",
+      badge: "live",
       summary:
         "A modern React + TypeScript + Vite personal portfolio featuring cinematic scroll storytelling, an interactive physics-based tech stack scene, and AI agent demos — built to showcase both frontend craft and AI integration skills.",
       highlights: [

@@ -20,7 +20,7 @@ export default function setSplitText() {
     gsap.set(element, { clearProps: "all" });
   });
 
-  if (window.innerWidth < 900) return;
+  if (window.innerWidth < 900 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   paras.forEach((para: ParaElement) => {
     para.classList.add("visible");
