@@ -1,5 +1,10 @@
 import gsap from "gsap";
 
+/**
+ * Path B: Stub for legacy references to avoid unused file compilation errors
+ */
+export function setCharTimeline(..._args: any[]) {}
+
 export function setHeroTimeline() {
   // Path B: Plain ScrollTrigger fade-up and parallax transitions without 3D models
   const tlLanding = gsap.timeline({

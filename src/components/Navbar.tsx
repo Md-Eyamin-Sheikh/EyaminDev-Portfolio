@@ -111,12 +111,7 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  const navLinks = [
-    { href: "#about", text: "ABOUT" },
-    { href: "#journey", text: "JOURNEY" },
-    { href: "#work", text: "PROJECTS" },
-    { href: "#contact", text: "CONTACT" },
-  ];
+  const navLinks = portfolioData.navLinks;
 
   return (
     <>

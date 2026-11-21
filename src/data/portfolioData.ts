@@ -20,12 +20,108 @@ export const portfolioData = {
     cycleTechA: "TypeScript",
     cycleTechB: "AI Agents",
   },
+  navLinks: [
+    { href: "#about", text: "ABOUT" },
+    { href: "#journey", text: "JOURNEY" },
+    { href: "#ai-lab", text: "AI LAB" },
+    { href: "#work", text: "PROJECTS" },
+    { href: "#contact", text: "CONTACT" },
+  ],
   workSection: {
     kicker: "Portfolio",
     title: "Selected",
     titleAccent: "Projects",
     subtitle:
       "A curated selection of production-ready applications — from MERN platforms to AI-powered features.",
+  },
+  aiLab: {
+    kicker: "Autonomous Agents & LLMs",
+    title: "AI Lab &",
+    titleAccent: "Automations",
+    subtitle:
+      "Live interactive prototypes and workflows demonstrating autonomous AI employees, function-calling pipelines, and structured business automations.",
+    statusLabels: {
+      live: "live",
+      prototype: "prototype",
+      learning: "learning",
+    },
+    ui: {
+      selectPromptLabel: "Choose a scenario:",
+      customInputLabel: "Or customize prompt input:",
+      inputPlaceholder: "Type instructions or test inquiry for the agent...",
+      runBtn: "Execute Agent Workflow",
+      runningBtn: "Agent Processing...",
+      resetBtn: "Reset Output",
+      outputHeader: "Execution Trace & Model Output",
+      fictionalNotice: "Fictional company workflow for demonstration",
+      techStackLabel: "Architecture & Stack",
+      roleLabel: "Agent Specification",
+      copyOutputBtn: "Copy Output",
+      copiedNotice: "Copied to clipboard",
+      networkStatusLive: "Connected to Cloudflare Worker",
+      networkStatusSimulated: "Deterministic Agent Simulation",
+      plainTextBadge: "Plain-text output (Zero injection)",
+    },
+    demos: [
+      {
+        id: "support-agent",
+        name: "Support Triage & Routing Agent",
+        role: "Autonomous Tier-1 Support Employee",
+        badge: "prototype" as const,
+        disclaimer: "Fictional company: ApexCloud Systems",
+        description:
+          "Evaluates incoming customer tickets, extracts sentiment & urgency, queries internal knowledge via RAG, and produces structured JSON routing or direct resolution replies.",
+        techStack: ["Gemini API", "Function Calling", "Cloudflare Workers", "TypeScript"],
+        samplePrompts: [
+          "Our production database cluster is reporting 504 errors on US-East. Critical payment APIs are failing.",
+          "I forgot how to update billing payment details for our annual enterprise subscription plan.",
+          "Can you cancel my subscription and issue an immediate refund for the last 6 months?",
+        ],
+        mockResponses: [
+          "[AGENT REASONING TRACE]\n> Ingesting customer ticket payload...\n> Sentiment Analysis: Urgent / High Distress\n> Detected Intent: Infrastructure Incident (504 Gateway Outage)\n> Function Call: trigger_escalation(team='DevOps_OnCall', incident_level='P1')\n\n[STRUCTURED AGENT OUTPUT]\n{\n  \"ticketId\": \"TKT-94218\",\n  \"priority\": \"P1 - CRITICAL\",\n  \"category\": \"Infrastructure / Payment Outage\",\n  \"assignedQueue\": \"DevOps_US_East_OnCall\",\n  \"automatedResponse\": \"We have confirmed reports of 504 errors impacting US-East database clusters. Incident INC-882 has been triggered and our on-call engineers are currently investigating. Status page updated.\",\n  \"routingConfidence\": 0.98\n}",
+          "[AGENT REASONING TRACE]\n> Ingesting customer ticket payload...\n> Sentiment Analysis: Neutral / Informational\n> Detected Intent: Billing Management Inquiry\n> Retrieval: Querying Knowledge Base article KB-104 ('Billing & Invoicing Guide')...\n\n[STRUCTURED AGENT OUTPUT]\n{\n  \"ticketId\": \"TKT-94219\",\n  \"priority\": \"P3 - Standard\",\n  \"category\": \"Billing Support\",\n  \"automatedResponse\": \"To update your enterprise billing details: Navigate to Settings > Billing > Payment Methods, select 'Edit Primary Card', and verify with 2FA. Invoices will automatically reflect the updated details on the next billing cycle.\",\n  \"routingConfidence\": 0.95\n}",
+          "[AGENT REASONING TRACE]\n> Ingesting customer ticket payload...\n> Sentiment Analysis: Dissatisfied / Cancellation Request\n> Policy Check: Refund policy limits automated refunds to 30 days.\n> Action: Flag for Human Review\n\n[STRUCTURED AGENT OUTPUT]\n{\n  \"ticketId\": \"TKT-94220\",\n  \"priority\": \"P2 - High Attention\",\n  \"category\": \"Account Retention / Refund Approval\",\n  \"assignedQueue\": \"Customer_Success_Tier2\",\n  \"automatedResponse\": \"Your cancellation request has been received. Because this request spans beyond the standard 30-day window, our Customer Success manager has been assigned to review your account details within 2 business hours.\",\n  \"routingConfidence\": 0.91\n}",
+        ],
+      },
+      {
+        id: "lead-qualifier",
+        name: "B2B Inbound Lead Qualifier",
+        role: "Autonomous Sales Development Representative (SDR)",
+        badge: "prototype" as const,
+        disclaimer: "Fictional company: NexusMetrics AI",
+        description:
+          "Parses unstructured inbound inquiry emails, calculates BANT qualification score (Budget, Authority, Need, Timeline), and schedules CRM actions.",
+        techStack: ["LLM Extraction", "CRM Webhooks", "TypeScript", "Worker Runtime"],
+        samplePrompts: [
+          "We are a team of 45 engineers at FinTech Corp looking to automate our daily reporting within the next 3 weeks. Budget is approved around $30k/yr.",
+          "Just browsing your features for a student college project. Is there a free tier?",
+          "VP of Operations here. We need an enterprise license for 350 seats, rollout planned for Q3. Send procurement docs.",
+        ],
+        mockResponses: [
+          "[AGENT REASONING TRACE]\n> Extracting BANT criteria from lead inquiry...\n> Budget: ~$30,000/yr (Tier: Mid-Market Growth)\n> Authority: Engineering Team Lead / Technical Buyer\n> Need: Daily reporting automation for 45 engineers\n> Timeline: 3 weeks (Immediate urgency)\n\n[QUALIFICATION REPORT]\n{\n  \"leadScore\": 88,\n  \"tier\": \"Tier-A Qualified Inbound\",\n  \"recommendedAction\": \"Auto-schedule discovery call with Mid-Market Account Exec\",\n  \"crmTag\": [\"high_intent\", \"growth_tier\", \"q1_close\"]\n}",
+          "[AGENT REASONING TRACE]\n> Extracting BANT criteria from lead inquiry...\n> Budget: $0 (Student / Academic inquiry)\n> Authority: Individual student\n> Need: Educational exploration\n> Timeline: Casual / None\n\n[QUALIFICATION REPORT]\n{\n  \"leadScore\": 15,\n  \"tier\": \"Academic / Community\",\n  \"recommendedAction\": \"Route to self-serve developer docs and community Discord\",\n  \"crmTag\": [\"non_commercial\", \"academic\"]\n}",
+          "[AGENT REASONING TRACE]\n> Extracting BANT criteria from lead inquiry...\n> Budget: Enterprise Tier (350 seats estimated $85k-$120k/yr)\n> Authority: VP of Operations (Executive Decision Maker)\n> Need: Enterprise deployment & procurement security clearance\n> Timeline: Q3 rollout\n\n[QUALIFICATION REPORT]\n{\n  \"leadScore\": 96,\n  \"tier\": \"Enterprise High-Value Target\",\n  \"recommendedAction\": \"Immediate notification to Enterprise VP of Sales; dispatch MSA & SOC2 packet\",\n  \"crmTag\": [\"enterprise\", \"c_level\", \"procurement_ready\"]\n}",
+        ],
+      },
+      {
+        id: "data-synthesizer",
+        name: "Financial Invoice Data Synthesizer",
+        role: "Automated Document Processing Agent",
+        badge: "learning" as const,
+        disclaimer: "Fictional company: GlobalLogistics Express",
+        description:
+          "Normalizes messy multi-currency invoice logs and vendor line-items into unified accounting structures with tax and anomaly checks.",
+        techStack: ["Structured Outputs", "Validation Schemas", "Node.js", "Zod"],
+        samplePrompts: [
+          "Vendor: CloudServe Ltd, Inv# 8841, Date: 2024-10-12, Items: 12x Dedicated Cores @ $120 each, 1x Setup Fee $350. Tax: 8.5%. Cur: USD.",
+          "Received freight manifest from EuroTrans: Subtotal EUR 4,200, fuel surcharge EUR 310, VAT 19% applies. Discrepancy detected on PO reference #9910.",
+        ],
+        mockResponses: [
+          "[SYNTHESIS PIPELINE LOG]\n> Parsing line items...\n> Validating arithmetic: (12 * 120) + 350 = 1,440 + 350 = $1,790 subtotal.\n> Tax computation: $1,790 * 0.085 = $152.15\n> Grand Total: $1,942.15 USD\n> Anomaly check: Passed (no line-item discrepancies detected).\n\n[NORMALIZED ACCOUNTING SCHEMA]\n{\n  \"invoiceNumber\": \"8841\",\n  \"vendor\": \"CloudServe Ltd\",\n  \"issueDate\": \"2024-10-12\",\n  \"currency\": \"USD\",\n  \"subtotal\": 1790.00,\n  \"tax\": 152.15,\n  \"total\": 1942.15,\n  \"validationStatus\": \"VERIFIED_AND_MATCHED\"\n}",
+          "[SYNTHESIS PIPELINE LOG]\n> Parsing European logistics invoice...\n> Base: EUR 4,200.00 + Surcharge: EUR 310.00 = Subtotal EUR 4,510.00\n> VAT (19%): EUR 856.90 | Total: EUR 5,366.90\n> Anomaly check: PO reference #9910 mismatch with master agreement.\n\n[NORMALIZED ACCOUNTING SCHEMA]\n{\n  \"vendor\": \"EuroTrans Logistics\",\n  \"currency\": \"EUR\",\n  \"totalAmount\": 5366.90,\n  \"validationStatus\": \"FLAGGED_FOR_AUDIT\",\n  \"flagReason\": \"PO #9910 mismatch with contracted tariff schedule\"\n}",
+        ],
+      },
+    ],
   },
   social: {
     linkedin: "https://www.linkedin.com/in/eyamin-sheikh/",

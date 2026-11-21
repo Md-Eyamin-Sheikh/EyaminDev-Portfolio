@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import About from "./About";
+import AILab from "./AILab";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
@@ -41,6 +42,7 @@ const MainContainer = () => {
             <About />
             <WhatIDo />
             <Career />
+            <AILab />
             <Work />
             <Suspense fallback={<div>Loading....</div>}>
               <TechStack />
