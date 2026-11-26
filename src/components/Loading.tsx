@@ -11,28 +11,46 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (percent < 100) return;
+
+    let welcomeTimeout: number | undefined;
+    const loadedTimeout = window.setTimeout(() => {
       setLoaded(true);
-      setTimeout(() => {
+      welcomeTimeout = window.setTimeout(() => {
         setIsLoaded(true);
       }, 1000);
     }, 600);
-  }
+
+    return () => {
+      window.clearTimeout(loadedTimeout);
+      if (welcomeTimeout !== undefined) window.clearTimeout(welcomeTimeout);
+    };
+  }, [percent]);
 
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      }
-    });
-  }, [isLoaded]);
+    if (!isLoaded) return;
+
+    let isMounted = true;
+    setClicked(true);
+    const timeout = window.setTimeout(() => {
+      import("./utils/initialFX")
+        .then(({ initialFX }) => {
+          if (isMounted) initialFX();
+        })
+        .catch((error: unknown) => {
+          console.error("Failed to initialize page animations:", error);
+        })
+        .finally(() => {
+          if (isMounted) setIsLoading(false);
+        });
+    }, 900);
+
+    return () => {
+      isMounted = false;
+      window.clearTimeout(timeout);
+    };
+  }, [isLoaded, setIsLoading]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;
@@ -107,7 +125,7 @@ export const setProgress = (setLoading: (value: number) => void) => {
 
   let interval = setInterval(() => {
     if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
+      const rand = Math.round(Math.random() * 5);
       percent = percent + rand;
       setLoading(percent);
     } else {

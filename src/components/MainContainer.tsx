@@ -12,11 +12,15 @@ import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
 import { setHeroTimeline, setAllTimeline } from "./utils/GsapScroll";
+import { useLoading } from "../context/LoadingProvider";
 
 const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = () => {
+  const { setLoading } = useLoading();
+
   useEffect(() => {
+    setLoading(100);
     setHeroTimeline();
     setAllTimeline();
     setSplitText();
@@ -28,7 +32,7 @@ const MainContainer = () => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, []);
+  }, [setLoading]);
 
   return (
     <div className="container-main">

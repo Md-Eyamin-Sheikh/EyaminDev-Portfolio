@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  optimizeDeps: {
+    include: ["@react-three/rapier", "@dimforge/rapier3d-compat"],
+  },
   build: {
     chunkSizeWarningLimit: 2100,
     rollupOptions: {
